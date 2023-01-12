@@ -24,7 +24,6 @@
         "vnetPubilcIP-name": "[concat(parameters('virtualMachine_name'),'-external')]",
         "vnetSubnet-name": "[concat(parameters('virtualMachine_name'),'-internal')]",
         "vnetSecurityGroup-name": "[concat(parameters('virtualMachine_name'),'-nsg')]",
-        //"StorageAccount-name": "[concat(parameters('virtualMachine_name'),'storage')]",
         "StorageAccount-name": "[concat(parameters('virtualMachine_name'),uniqueString(resourceGroup().id))]",
         "FileShare-name": "[concat(parameters('virtualMachine_name'),'fileshare')]",
         "Datadisk-name": "[concat(parameters('virtualMachine_name'),'-datadisk1')]",
@@ -69,7 +68,6 @@
                 "displayName": "PublicIPAddress"
             },
             "properties": {
-                //"publicIPAllocationMethod": "Dynamic",
                 "publicIPAllocationMethod": "Static",
                 "dnsSettings": {
                     "domainNameLabel": "[concat(toLower('ubuntuVM1'),uniqueString(resourceGroup().id))]"
@@ -267,12 +265,6 @@
                         }
                     ]
                 }
-                // "diagnosticsProfile": {
-                //     "bootDiagnostics": {
-                //         "enabled": true,
-                //         "storageUri": "[reference(resourceId('Microsoft.Storage/storageAccounts/', variables('StorageAccount-name'))).primaryEndpoints.blob]"
-                //     }            
-                // }
             }
         },
         {
@@ -292,7 +284,7 @@
                 },
                 "protectedSettings": {
                     "commandToExecute": "sh install.sh",
-                    "fileUris": ["https://raw.githubusercontent.com/zhengyiqun/AzureTemplateDemo/main/script/install.sh"]
+                    "fileUris": ["https://raw.githubusercontent.com/0xMSDN/buidl-4arbitrum/main/script/install.sh"]
                 }
             }
         }
