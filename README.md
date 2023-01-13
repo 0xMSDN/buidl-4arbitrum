@@ -5,7 +5,6 @@ testing azure template <br>
 
 ---
 
-# Arbitrum Fullnode
 
 ## 硬件配置
 
@@ -42,10 +41,7 @@ docker：latest
 
 ## 环境部署
 
-推荐使用Azure RM Template来部署环境，在部署环境的同时还做了一些小测试，主要是在存储性能方面：
-1、Azure FIle Storage(大型文件共享) SMB协议
-2、Azure File Storage(高级文件共享) NFS协议
-3、Premium SSD(远程数据盘)
+推荐使用Azure RM Template来部署环境，在部署环境的同时还做了一些小测试，主要是在存储性能方面：<br> 1、Azure FIle Storage(大型文件共享) SMB协议 <br> 2、Azure File Storage(高级文件共享) NFS协议<br>3、Premium SSD(远程数据盘)
 
 最后从性价比上来看，还是推荐SSD的方案，也是本文档主要介绍的方案。模板中除了创建虚拟机之外，还配置网络所需要的端口和docker环境的部署，整个环境部署成功之后，还需要登录虚拟机配置数据磁盘。
 
@@ -936,9 +932,7 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 新建一个目录，mount到数据盘并修改权限
 
 ~~~bash
-/*
-*格式化磁盘
-*/
+#格式化磁盘
 sudo mkfs.ext4 /dev/sdb
 
 /*
