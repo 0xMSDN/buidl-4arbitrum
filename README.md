@@ -29,7 +29,7 @@ Linux : ubuntu 18.04 LTS
 
 docker：latest
 
-**参考文档：<https://developer.arbitrum.io/node-running/running-a-node**>
+*参考文档：<https://developer.arbitrum.io/node-running/running-a-node>*
 
 ---
 
