@@ -980,8 +980,8 @@ docker run --name arbitrumfullnode -idt  -v /mount/datadisk:/home/user/.arbitrum
 ~~~
 
 此外还需要有两点注意：
-- 如果选择正式网，需要创始数据库的快照，因此还需要再加一个参数`--init.url`，详细信息可以查看[文档](https://developer.arbitrum.io/node-running/running-a-node#required-artifacts)
-- 当节点更新时可以复用此命令，但是对于docker container的版本需要更新（有些升级因为涉及共识升级，所以是强制更新）
+- 如果选择运行arbitrum one主网（42161），需要创始数据库的创世快照，因此还需要再加一个参数`--init.url`，详细信息可以查看[文档](https://developer.arbitrum.io/node-running/running-a-node#required-artifacts)
+- 当节点更新时可以复用此命令，但是对于docker container的版本号需要更新（有些升级因为涉及共识升级，所以是强制更新）
 
 查看镜像运行情况
 
