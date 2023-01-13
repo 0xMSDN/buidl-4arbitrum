@@ -5,6 +5,7 @@ testing azure template <br>
 
 ---
 
+# Arbitrum Fullnode on Azure
 
 ## 硬件配置
 
@@ -935,24 +936,19 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 #格式化磁盘
 sudo mkfs.ext4 /dev/sdb
 
-/*
-*查看磁盘的UUID
-*/
+#查看磁盘的UUID
 blkid -s UUID
 
 /dev/sda1: UUID="b2fc75a0-1b27-4b2e-bfbd-84236b0f49ee"
 /dev/sda15: UUID="9AF4-112D"
 /dev/sdb: UUID="3a754e30-ca3f-4bad-8a99-5d243d2f377c"
 
-/*
-*新建目录并挂载磁盘
-*/
+
+#新建目录并挂载磁盘
 sudo mkdir -p /mount/datadisk
 sudo mount /dev/sdb /mount/datadisk
 
-/*
-*查看磁盘是否挂载成功
-*/
+#查看磁盘是否挂载成功
 df -h
 
 Filesystem      Size  Used Avail Use% Mounted on
@@ -966,19 +962,14 @@ tmpfs           7.9G     0  7.9G   0% /sys/fs/cgroup
 tmpfs           1.6G     0  1.6G   0% /run/user/1000
 /dev/sdb        2.0T   28K  1.9T   1% /mount/datadisk
 
-/*
-*写入到fstab:UUID=3a754e30-ca3f-4bad-8a99-5d243d2f377c /mount/datadisk ext4 defaults 1 1
-*/  
+
+#写入到fstab:UUID=3a754e30-ca3f-4bad-8a99-5d243d2f377c /mount/datadisk ext4 defaults 1 1  
 sudo vim /etc/fstab
 
-/*
-*修改目录权限
-*/
+#修改目录权限
 sudo chmod +666 /mount/datadisk
 
-/*
-*重启
-*/
+#重启
 sudo reboot
 ~~~
 
