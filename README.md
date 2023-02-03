@@ -932,19 +932,21 @@ I/O size (minimum/optimal): 4096 bytes / 4096 bytes
 
 ~~~bash
 #格式化磁盘
-sudo mkfs.ext4 /dev/sdb
+sudo parted /dev/sdb --script mklabel gpt mkpart primary ext4 0% 100%
+sudo mkfs.ext4 /dev/sdb1
+sudo partprobe /dev/sdb1
 
 #查看磁盘的UUID
 blkid -s UUID
 
 /dev/sda1: UUID="b2fc75a0-1b27-4b2e-bfbd-84236b0f49ee"
 /dev/sda15: UUID="9AF4-112D"
-/dev/sdb: UUID="3a754e30-ca3f-4bad-8a99-5d243d2f377c"
+/dev/sdb1: UUID="3a754e30-ca3f-4bad-8a99-5d243d2f377c"
 
 
 #新建目录并挂载磁盘
 sudo mkdir -p /mount/datadisk
-sudo mount /dev/sdb /mount/datadisk
+sudo mount /dev/sdb1 /mount/datadisk
 
 #查看磁盘是否挂载成功
 df -h
@@ -958,7 +960,7 @@ tmpfs           5.0M     0  5.0M   0% /run/lock
 tmpfs           7.9G     0  7.9G   0% /sys/fs/cgroup
 /dev/sda15      105M  4.4M  100M   5% /boot/efi
 tmpfs           1.6G     0  1.6G   0% /run/user/1000
-/dev/sdb        2.0T   28K  1.9T   1% /mount/datadisk
+/dev/sdb1       2.0T   28K  1.9T   1% /mount/datadisk
 
 
 #写入到fstab:UUID=3a754e30-ca3f-4bad-8a99-5d243d2f377c /mount/datadisk ext4 defaults 1 1  
