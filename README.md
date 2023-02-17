@@ -1,3 +1,6 @@
+[![Page Views Count](https://badges.toozhao.com/badges/01GSG43GMBY0S8MVRR83HF1AWC/orange.svg)](https://badges.toozhao.com/stats/01GSG43GMBY0S8MVRR83HF1AWC "Views Count")
+
+
 # Arbitrum Fullnode
 
 deploy arbitrum fullnode to azure <br>
@@ -975,7 +978,7 @@ sudo reboot
 
 ## 部署Arbitrum Fullnode
 
-使用docker image启动Arbitrum fullnode，根据[文档](https://developer.arbitrum.io/node-running/running-a-node#required-parameter)还需准备2个参数，` L1 node RPC endpoint` 和 ` L2 Chain Id`，这两个参数可以在[Public Chains](https://developer.arbitrum.io/public-chains)中找到，测试环境使用`Nitro Goerli Rollup Testnet`。从文档上看Testnet支持[Infura](https://infura.io/)，所以我使用了自己的链接，各位部署的时候要换成自己的PROJECTID：
+使用docker image启动Arbitrum fullnode，根据[文档](https://developer.arbitrum.io/node-running/running-a-node#required-parameter)还需准备2个参数，`L1 node RPC endpoint` 和 `L2 Chain Id`，这两个参数可以在[Public Chains](https://developer.arbitrum.io/public-chains)中找到，测试环境使用`Nitro Goerli Rollup Testnet`。从文档上看Testnet支持[Infura](https://infura.io/)，所以我使用了自己的链接，各位部署的时候要换成自己的PROJECTID：
 
 ~~~bash
 docker run --name arbitrumfullnode -idt  -v /mount/datadisk:/home/user/.arbitrum -p 0.0.0.0:8547:8547 -p 0.0.0.0:8548:8548 offchainlabs/nitro-node:v2.0.10-rc.2-9148773 --l1.url https://goerli.infura.io/v3/YOUR-PROJECT-ID --l2.chain-id=421613 --http.api=net,web3,eth,debug --http.corsdomain=* --http.addr=0.0.0.0 --http.vhosts=*
